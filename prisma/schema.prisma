@@ -30,3 +30,14 @@ model Session {
   collaborator  Boolean?  @default(false)
   emailVerified Boolean?  @default(false)
 }
+
+model DiscountRule {
+  id                Int      @id @default(autoincrement())
+  title             String
+  description       String?
+  status            String   // 'active' or 'inactive'
+  customerTag       String   // e.g., 'wholesale'
+  discountType      String   // 'percent' or 'fixed'
+  discountValue     Float
+  createdAt         DateTime @default(now())
+}
