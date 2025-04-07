@@ -1,31 +1,28 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
-client_id = "44671b4510d0f1cc58bc3c396a6995a5"
+client_id = "9df05045c4312f04b4ed2d76f2f7d706"
 name = "api-access-test"
-handle = "api-access-test"
-application_url = "https://example.com/"
+handle = "api-access-test-1"
+application_url = "https://photograph-node-time-propecia.trycloudflare.com"
 embedded = true
 
 [build]
 include_config_on_deploy = true
+automatically_update_urls_on_dev = true
 
 [webhooks]
 api_version = "2025-04"
 
-  [[webhooks.subscriptions]]
-  topics = [ "app/uninstalled" ]
-  uri = "/webhooks/app/uninstalled"
-
-  [[webhooks.subscriptions]]
-  topics = [ "app/scopes_update" ]
-  uri = "/webhooks/app/scopes_update"
-
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "write_products"
+scopes = "read_products, write_products, read_customers"
 
 [auth]
-redirect_urls = [ "https://example.com/api/auth" ]
+redirect_urls = [
+  "https://photograph-node-time-propecia.trycloudflare.com/auth/callback",
+  "https://photograph-node-time-propecia.trycloudflare.com/auth/shopify/callback",
+  "https://photograph-node-time-propecia.trycloudflare.com/api/auth/callback"
+]
 
 [pos]
 embedded = false

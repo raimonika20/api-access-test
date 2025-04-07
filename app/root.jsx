@@ -17,6 +17,10 @@ export default function App() {
           rel="stylesheet"
           href="https://cdn.shopify.com/static/fonts/inter/v4/styles.css"
         />
+        <link
+          rel="stylesheet"
+          href="../build/tailwind.css"
+        />
         <Meta />
         <Links />
       </head>
