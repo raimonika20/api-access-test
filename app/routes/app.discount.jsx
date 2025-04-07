@@ -12,6 +12,32 @@ import {
 } from '@shopify/polaris';
 import { TitleBar } from '@shopify/app-bridge-react';
 import { useFetcher } from '@remix-run/react';
+import prisma from "../db.server";
+
+export const action = async ({ request }) => {
+  const formData = await request.formData();
+
+  const customerTags = formData.get('customerTags');
+  const discountValue = parseFloat(formData.get('discountValue') || '0');
+
+  const discount = {
+    title: formData.get('discountTitle'),
+    description: formData.get('discountDescription'),
+    status: formData.get('discountStatus'),
+    customerTag: customerTags || '',
+    discountType: formData.get('discountType'),
+    discountValue: discountValue,
+  };
+
+  try {
+    await prisma.discountRule.create({ data: discount });
+    console.log('Discount saved:', discount);
+    return null;
+  } catch (error) {
+    console.error('Error saving discount:', error);
+    return null;
+  }
+};
 
 export default function DiscountPricingPage() {
   const fetcher = useFetcher();
@@ -214,10 +240,3 @@ export default function DiscountPricingPage() {
   );
 }
 
-export const action = async ({ request }) => {
-  const formData = await request.formData();
-  const discountData = Object.fromEntries(formData);
-
-  console.log('Saving Discount:', discountData);
-  return null;
-};

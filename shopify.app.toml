@@ -3,7 +3,7 @@
 client_id = "9df05045c4312f04b4ed2d76f2f7d706"
 name = "api-access-test"
 handle = "api-access-test-1"
-application_url = "https://photograph-node-time-propecia.trycloudflare.com"
+application_url = "https://forever-preferred-concentrate-tons.trycloudflare.com"
 embedded = true
 
 [build]
@@ -19,9 +19,9 @@ scopes = "read_products, write_products, read_customers"
 
 [auth]
 redirect_urls = [
-  "https://photograph-node-time-propecia.trycloudflare.com/auth/callback",
-  "https://photograph-node-time-propecia.trycloudflare.com/auth/shopify/callback",
-  "https://photograph-node-time-propecia.trycloudflare.com/api/auth/callback"
+  "https://forever-preferred-concentrate-tons.trycloudflare.com/auth/callback",
+  "https://forever-preferred-concentrate-tons.trycloudflare.com/auth/shopify/callback",
+  "https://forever-preferred-concentrate-tons.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
