@@ -3,7 +3,7 @@
 client_id = "9df05045c4312f04b4ed2d76f2f7d706"
 name = "api-access-test"
 handle = "api-access-test-1"
-application_url = "https://forever-preferred-concentrate-tons.trycloudflare.com"
+application_url = "https://los-tm-x-chip.trycloudflare.com"
 embedded = true
 
 [build]
@@ -15,13 +15,13 @@ api_version = "2025-04"
 
 [access_scopes]
 # Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
-scopes = "read_products, write_products, read_customers"
+scopes = "read_products, write_products, read_customers, write_customers"
 
 [auth]
 redirect_urls = [
-  "https://forever-preferred-concentrate-tons.trycloudflare.com/auth/callback",
-  "https://forever-preferred-concentrate-tons.trycloudflare.com/auth/shopify/callback",
-  "https://forever-preferred-concentrate-tons.trycloudflare.com/api/auth/callback"
+  "https://los-tm-x-chip.trycloudflare.com/auth/callback",
+  "https://los-tm-x-chip.trycloudflare.com/auth/shopify/callback",
+  "https://los-tm-x-chip.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]

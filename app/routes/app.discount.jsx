@@ -13,6 +13,8 @@ import {
 import { TitleBar } from '@shopify/app-bridge-react';
 import { useFetcher } from '@remix-run/react';
 import prisma from "../db.server";
+import { authenticate } from "../shopify.server";
+import { applyDiscountsToCustomers } from "../utils/applyDiscountsToCustomers";
 
 export const action = async ({ request }) => {
   const formData = await request.formData();
@@ -30,7 +32,14 @@ export const action = async ({ request }) => {
   };
 
   try {
-    await prisma.discountRule.create({ data: discount });
+    // 1. Save rule to DB
+  await prisma.discountRule.create({ data: discount });
+
+  // 2. Authenticate admin API client
+  const { admin } = await authenticate.admin(request);
+
+  // 3. Apply metafields to matching customers
+  await applyDiscountsToCustomers(admin, discount);
     console.log('Discount saved:', discount);
     return null;
   } catch (error) {
